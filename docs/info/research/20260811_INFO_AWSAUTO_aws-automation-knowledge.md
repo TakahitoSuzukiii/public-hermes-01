@@ -1,6 +1,6 @@
 作成日: 2026-08-11 / STATUS: INFO / TOPIC: AWSAUTO
 
-# AWSによる業務自動化ナレッジ 週次まとめ（2026-08-11）
+# AWSによる業務自動化ナレッジ（2026-08-11）— AgentCore Code Interpreterレポート生成・Config自動修復・DevOps Guru異常検知
 
 今週は「非準拠リソースの自動修復」「セキュリティ監視の統合自動化」「AI/エージェントを使ったレポート生成」「マルチアカウントCI/CD」「異常検知の自動化」「バックアップ運用」「コミュニティ知見（awesome-aws）」の7テーマを中心に、AWS（Amazon Web Services、Amazonが提供するクラウドサービス群）の業務自動化ナレッジを収集しました。前週（2026-08-09）はコストレポート自動化やSecurity Hub Advanced、Systems Managerパッチ自動化を扱ったため、今回はConfigの自動修復やDevOps Guru、AWS Backupなど別のサービス・切り口を優先しています。
 
