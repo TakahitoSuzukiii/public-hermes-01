@@ -1,4 +1,4 @@
-# Claude 業務自動化ナレッジ（週次）
+# Claude/Claude Code 業務自動化ナレッジ（2026-06-15）— SRE・オンコール運用自動化・kubectl/Terraform委譲・本番書き込み権限のセキュリティ設計
 
 作成日: 2026-06-15 / STATUS: INFO / TOPIC: CLAUDEAUTO
 
