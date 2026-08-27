@@ -1,4 +1,4 @@
-# GitHub週間トレンド（2026-08-14）
+# GitHub週次トレンド（2026-08-14）— mattpocock/skills伸び幅拡大、msitarzewski/agency-agentsとstablyai/orcaも急伸
 
 作成日: 2026-08-14 / STATUS: INFO / TOPIC: TRENDING
 
