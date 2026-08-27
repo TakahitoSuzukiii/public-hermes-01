@@ -1,4 +1,4 @@
-# Claude 業務自動化ナレッジ（週次）
+# Claude/Claude Code 業務自動化ナレッジ（2026-06-10）— PPT/Excel資料自動生成・ゼロデイ発見とトリアージ崩壊・GitHub Actionsシークレット漏えい
 
 > 作成日: 2026-06-10 / STATUS: INFO / TOPIC: CLAUDEAUTO
 
