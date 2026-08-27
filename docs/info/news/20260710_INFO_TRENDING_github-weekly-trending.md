@@ -1,4 +1,4 @@
-# GitHub 週次トレンド（2026-07-10）
+# GitHub週次トレンド（2026-07-10）— addyosmani/agent-skillsとmattpocock/skillsがriser上位独占
 
 作成日: 2026-07-10 / STATUS: INFO / TOPIC: TRENDING
 
