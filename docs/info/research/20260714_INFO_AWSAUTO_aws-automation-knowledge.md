@@ -1,4 +1,4 @@
-# AWS 業務自動化ナレッジ（週次・2026-07-14）
+# AWS 業務自動化ナレッジ（2026-07-14）— CUR/Athena/QuickSightコスト可視化・生成AIコストレポート・ASR自動修復
 
 作成日: 2026-07-14 / STATUS: INFO / TOPIC: AWSAUTO
 
