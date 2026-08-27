@@ -1,6 +1,6 @@
 作成日: 2026-08-22 / STATUS: INFO / TOPIC: ALAS / 対象: Critical+Important
 
-# AL2023（Amazon Linux 2023）セキュリティアドバイザリ週次まとめ（2026-08-22）
+# AL2023セキュリティアドバイザリ週次まとめ（2026-08-22）— kernel6.18大量CVEロールアップとperl-Net-DNSコマンド実行脆弱性
 
 > **ALAS（Amazon Linux Security Advisory）** とは、AWS（Amazon Web Services）がAmazon Linuxで見つかった脆弱性（ぜいじゃくせい＝ソフトウェアのセキュリティ上の弱点）を公式に告知する仕組みです。本記事はAWS公式のALAS RSS（フィード配信）を情報源に、直近1週間で新規公開されたアドバイザリのうち **Critical（緊急）** と **Important（重要）** をまとめたものです。
 
@@ -284,7 +284,7 @@ sudo dnf update
 
 ## 出典
 
-- AWS公式 ALASフィード（AL2023）
+- AWS公式 ALAS RSSフィード（AL2023）
 - 各アドバイザリの詳細は上記リンク先の公式ページをご参照ください。
 
 ---
