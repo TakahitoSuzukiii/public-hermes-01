@@ -1,4 +1,4 @@
-# GitHub 週次トレンド（2026-07-03）
+# GitHub週次トレンド（2026-07-03）— ponytail・msitarzewski/agency-agents・obra/superpowers伸長
 
 作成日: 2026-07-03 / STATUS: INFO / TOPIC: TRENDING
 
