@@ -1,4 +1,4 @@
-# AL2023 セキュリティアドバイザリ 週次まとめ（2026-07-11）
+# AL2023セキュリティアドバイザリ週次まとめ（2026-07-11）— Linuxカーネルfraggap権限昇格とlibheif/Firefox脆弱性
 
 作成日: 2026-07-11 / STATUS: INFO / TOPIC: ALAS / 対象: Critical+Important
 
