@@ -1,4 +1,4 @@
-# Hacker News 週刊キャッチアップ 2026-07-28
+# Hacker News週次キャッチアップ（2026-07-21〜2026-07-28）— Claude Opus 5発表とGrapheneOS端末空港初期化事件
 
 作成日: 2026-07-28 / STATUS: INFO / TOPIC: HN
 
