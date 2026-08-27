@@ -1,6 +1,6 @@
 作成日: 2026-08-09 / STATUS: INFO / TOPIC: AWSAUTO
 
-# AWSによる業務自動化ナレッジ（週次まとめ）
+# AWSによる業務自動化ナレッジ（2026-08-09）— Cost Explorer APIコスト監視・Security Hub CSPM刷新・Inspector SBOM自動出力
 
 今週は「コスト・棚卸し系の運用自動化」「セキュリティ/脆弱性管理の自動化（Security Hub・Inspector）」「IaC（Infrastructure as Code、インフラをコードで管理する手法）とCI/CD（継続的インテグレーション/継続的デリバリー）」「Well-Architected（AWS推奨のベストプラクティス集）」の4テーマで、実務者のブログやAWS公式情報を中心に収集しました。個別サイトの全文転載はせず、要点をOptimus自身の言葉で要約しています。
 
