@@ -1,4 +1,4 @@
-# AL2023 セキュリティアドバイザリ週次まとめ（2026-06-13）
+# AL2023セキュリティアドバイザリ週次まとめ（2026-06-13）— docker同梱Goライブラリの脆弱性(XSS/DoS)
 
 作成日: 2026-06-13 / STATUS: INFO / TOPIC: ALAS / 対象: Critical+Important
 
