@@ -1,6 +1,6 @@
 作成日: 2026-07-26 / STATUS: INFO / TOPIC: CLAUDEAUTO
 
-# 週次まとめ：Claude / Claude Code による業務自動化ナレッジ（2026-07-26 号）
+# Claude/Claude Code 業務自動化ナレッジ（2026-07-26）— SRE判断基準のSkill化・GitHub ActionsでのCI/CD自動レビュー・Claude Security公開ベータ
 
 > 注: 各記事の主張・数値・手順は出典元のものです。製品仕様やコマンドは変わり得るため、導入時は必ず一次情報で再確認してください。本記事は要約・考察であり全文転載ではありません。専門用語は綴りと意味を併記します。
 
