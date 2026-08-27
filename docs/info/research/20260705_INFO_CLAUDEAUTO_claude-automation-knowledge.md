@@ -1,4 +1,4 @@
-# 週次まとめ：Claude / Claude Code / Cowork による業務自動化ナレッジ（2026-07-05 号）
+# Claude/Claude Code/Cowork 業務自動化ナレッジ（2026-07-05）— Cowork資料自動化・Claude Code Security正式提供・ゼロデイトリアージ課題
 
 作成日: 2026-07-05 / STATUS: INFO / TOPIC: CLAUDEAUTO
 
