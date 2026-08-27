@@ -1,4 +1,4 @@
-# AL2023 セキュリティアドバイザリ 週次レポート（Critical / Important）
+# AL2023セキュリティアドバイザリ週次レポート（2026-07-04）— rclone認証回避RCE脆弱性(CVE-2026-49980)
 
 作成日: 2026-07-04 / STATUS: INFO / TOPIC: ALAS / 対象: Critical+Important
 
