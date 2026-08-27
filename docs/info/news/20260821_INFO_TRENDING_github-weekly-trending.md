@@ -1,4 +1,4 @@
-# GitHub週次トレンド（2026-08-21）
+# GitHub週次トレンド（2026-08-21）— deepseek-ai/deepseek-harnessが爆発的急伸、mattpocock/skillsも続伸
 
 作成日: 2026-08-21 / STATUS: INFO / TOPIC: TRENDING
 
