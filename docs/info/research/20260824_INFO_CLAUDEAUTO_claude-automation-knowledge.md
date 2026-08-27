@@ -1,4 +1,4 @@
-# Claude / Claude Code / cowork 業務自動化ナレッジ（週次収集）
+# Claude/Claude Code/Cowork 業務自動化ナレッジ（2026-08-24）— 未経験者のExcel自動化実践・Claude Code Securityの脆弱性発掘実データ・SRE Terraform運用
 
 作成日: 2026-08-24 / STATUS: INFO / TOPIC: CLAUDEAUTO
 
