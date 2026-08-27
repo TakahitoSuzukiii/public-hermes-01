@@ -1,4 +1,4 @@
-# GitHub 週次トレンド（2026-06-12）
+# GitHub週次トレンド（2026-06-12）— AIエージェントSkill集の急伸: last30days-skill・odysseus・agent-skills
 
 > 作成日: 2026-06-12 / STATUS: INFO / TOPIC: TRENDING
 
