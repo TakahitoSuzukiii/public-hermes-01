@@ -1,4 +1,4 @@
-# Claude / Claude Code / cowork 業務自動化ナレッジ（週次収集）
+# Claude/Claude Code/Cowork 業務自動化ナレッジ（2026-08-10）— Excel自動化実践記・Project Glasswing脆弱性発見・GitLab CI/CD公式統合
 
 作成日: 2026-08-10 / STATUS: INFO / TOPIC: CLAUDEAUTO
 
