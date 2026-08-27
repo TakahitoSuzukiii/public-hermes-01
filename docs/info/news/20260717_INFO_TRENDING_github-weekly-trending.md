@@ -1,4 +1,4 @@
-# GitHub 週次トレンド（2026-07-17）
+# GitHub週次トレンド（2026-07-17）— mattpocock/skills首位とコード知識グラフ化系(Graphify等)の伸長
 
 作成日: 2026-07-17 / STATUS: INFO / TOPIC: TRENDING
 
