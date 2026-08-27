@@ -1,4 +1,4 @@
-# GitHub週間トレンド（2026-08-09）
+# GitHub週次トレンド（2026-08-09）— mattpocock/skills首位継続、diegosouzapw/OmniRouteのAIゲートウェイが急伸
 
 作成日: 2026-08-09 / STATUS: INFO / TOPIC: TRENDING
 
