@@ -1,4 +1,4 @@
-# Claude / Claude Code / cowork 業務自動化ナレッジ（週次収集）
+# Claude/Claude Code/Cowork 業務自動化ナレッジ（2026-08-17）— Claude in PowerPointアドイン・/security-review自動セキュリティレビュー・楽天のClaude Code導入事例
 
 作成日: 2026-08-17 / STATUS: INFO / TOPIC: CLAUDEAUTO
 
