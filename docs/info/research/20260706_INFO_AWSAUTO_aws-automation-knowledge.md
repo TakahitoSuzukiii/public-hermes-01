@@ -1,6 +1,6 @@
 作成日: 2026-07-06 / STATUS: INFO / TOPIC: AWSAUTO
 
-# AWS 業務自動化ナレッジ（週次・2026-07-06）
+# AWS 業務自動化ナレッジ（2026-07-06）— SSM Automation Runbook・EBS運用標準化・実行制御強化
 
 ## 今週のテーマ / 見どころ
 
