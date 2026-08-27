@@ -1,4 +1,4 @@
-# GitHub 週刊トレンド — 2026-07-24
+# GitHub週次トレンド（2026-07-24）— koala73/worldmonitorが最速急伸、mattpocock/skillsとGraphify-Labs/graphifyも続伸
 
 作成日: 2026-07-24 / STATUS: INFO / TOPIC: TRENDING
 
