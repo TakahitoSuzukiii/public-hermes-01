@@ -1,4 +1,4 @@
-# GitHub 週次トレンド（2026-07-05）
+# GitHub週次トレンド（2026-07-05）— JuliusBrussee/cavemanのトークン削減とLeonxlnx/taste-skill
 
 作成日: 2026-07-05 / STATUS: INFO / TOPIC: TRENDING
 
