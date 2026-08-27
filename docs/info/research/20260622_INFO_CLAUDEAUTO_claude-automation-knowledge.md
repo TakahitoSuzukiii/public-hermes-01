@@ -1,3 +1,5 @@
+# Claude/Claude Code 業務自動化ナレッジ（2026-06-22）— PowerPoint/Excelレポート自動生成・Playwright CI/CDテスト自動化
+
 作成日: 2026-06-22 / STATUS: INFO / TOPIC: CLAUDEAUTO
 
 今週のテーマ: Claude Codeによる業務レポート自動化とCI/CD連携の最前線
