@@ -1,4 +1,4 @@
-# 週次まとめ：Claude / Claude Code による業務自動化ナレッジ（2026-07-13 号）
+# Claude/Claude Code 業務自動化ナレッジ（2026-07-13）— File Skillsによる Excel/PowerPoint自動生成・デザイン崩れ防止設計・Claude Code Security
 
 作成日: 2026-07-13 / STATUS: INFO / TOPIC: CLAUDEAUTO
 
