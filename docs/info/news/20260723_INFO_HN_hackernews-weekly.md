@@ -1,4 +1,4 @@
-# Hacker News 週刊キャッチアップ（2026-07-23）
+# Hacker News週次キャッチアップ（2026-07-16〜2026-07-23）— ESP32ボウリング場自作Show HNが首位、中国製Kimi K3のオープンウェイト旋風
 
 作成日: 2026-07-23 / STATUS: INFO / TOPIC: HN
 
