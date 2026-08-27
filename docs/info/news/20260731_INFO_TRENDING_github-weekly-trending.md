@@ -1,4 +1,4 @@
-# GitHub 週次トレンド（2026-07-31）
+# GitHub週次トレンド（2026-07-31）— odysseus-dev/odysseusが+22,526で急伸、トークン削減ゲートウェイも台頭
 
 作成日: 2026-07-31 / STATUS: INFO / TOPIC: TRENDING
 
