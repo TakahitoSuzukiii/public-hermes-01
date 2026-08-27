@@ -1,4 +1,4 @@
-# Hacker News 週刊キャッチアップ（2026-08-12 〜 2026-08-19）
+# Hacker News週次キャッチアップ（2026-08-12〜2026-08-19）— FirefoxのuBlock Origin対応存続とTailscaleのSQLite WAL16年物バグ調査
 
 作成日: 2026-08-19 / STATUS: INFO / TOPIC: HN
 
