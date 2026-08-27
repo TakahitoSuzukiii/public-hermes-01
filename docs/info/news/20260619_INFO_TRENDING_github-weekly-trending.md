@@ -1,4 +1,4 @@
-# GitHub 週次トレンド（2026-06-19 版）
+# GitHub週次トレンド（2026-06-19）— mattpocock/skills急伸とトークン削減ツール(rtk・caveman)ブーム
 
 作成日: 2026-06-19 / STATUS: INFO / TOPIC: TRENDING
 
