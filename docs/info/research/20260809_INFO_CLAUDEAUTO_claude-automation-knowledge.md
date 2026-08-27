@@ -1,4 +1,4 @@
-# Claude / Claude Code / cowork 業務自動化ナレッジ（週次収集）
+# Claude/Claude Code/Cowork 業務自動化ナレッジ（2026-08-09）— 事務自動化実例10選・Anthropicのゼロデイ脆弱性発見・Playwrightテスト自動化
 
 作成日: 2026-08-09 / STATUS: INFO / TOPIC: CLAUDEAUTO
 
