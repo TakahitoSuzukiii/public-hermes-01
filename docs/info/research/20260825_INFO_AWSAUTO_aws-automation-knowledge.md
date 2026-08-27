@@ -1,6 +1,6 @@
 作成日: 2026-08-25 / STATUS: INFO / TOPIC: AWSAUTO
 
-# AWSによる業務自動化ナレッジ 週次まとめ（2026-08-25）
+# AWSによる業務自動化ナレッジ（2026-08-25）— Lambda棚卸しExcel自動生成・Security Hub自動化ルール・Config適合パック自動修復
 
 今週は「Lambdaによるリソース棚卸しExcelレポート自動生成」「Security Hub自動化ルール（新機能）による検出結果の自動振り分け」「AWS Config適合パック（Conformance Pack）による準拠状態の自動修復」「GuardDutyマルチアカウント脅威検知とEventBridge連携」「Systems Manager Automationランブックによる定型作業の自動化」「AWS CDKでのEventBridge×Lambdaバッチ構築」「コミュニティ知見（awesome-aws）」の7テーマを中心に収集しました。前週（2026-08-18）はCost Explorer APIでのコスト通知やInspector SBOM、StackSetsを扱ったため、今週はSecurity Hubの新しい自動化ルール機能やConfig適合パック、CDKでのバッチ構築など、別のサービス・切り口を優先しています。
 
