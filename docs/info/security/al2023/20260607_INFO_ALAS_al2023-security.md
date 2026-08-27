@@ -1,4 +1,4 @@
-# AL2023 セキュリティアドバイザリ（Critical 棚卸し・2026-06-07 初回）
+# AL2023セキュリティアドバイザリ初回棚卸し（2026-06-07）— lassoのSAML経由RCEと.NET 8/9権限昇格などCritical12件
 
 > 作成日: 2026-06-07 / STATUS: INFO / TOPIC: ALAS / 対象: Critical
 > 情報源: Amazon Linux Security Center（ALAS）公式 RSS <https://alas.aws.amazon.com/AL2023/alas.rss>
