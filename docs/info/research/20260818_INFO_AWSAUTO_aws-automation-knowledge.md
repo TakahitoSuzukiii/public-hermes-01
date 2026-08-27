@@ -1,6 +1,6 @@
 作成日: 2026-08-18 / STATUS: INFO / TOPIC: AWSAUTO
 
-# AWSによる業務自動化ナレッジ 週次まとめ（2026-08-18）
+# AWSによる業務自動化ナレッジ（2026-08-18）— コストSlack自動通知・Inspector SBOMプラグイン・GuardDutyマルウェア自動隔離
 
 今週は「コストレポートのSlack自動通知」「脆弱性管理（Inspector）とマルウェア自動隔離（GuardDuty）」「Systems Manager AutomationとStackSetsによる運用自動化」「Terraform運用のベストプラクティス」「Well-Architected/Trusted Advisorの活用」「コミュニティ知見（awesome-devops）」の6テーマを中心に、AWS（Amazon Web Services、Amazonが提供するクラウドサービス群）の業務自動化ナレッジを収集しました。前週（2026-08-11）はAWS Configの自動修復やDevOps Guru、AWS Backup、AgentCore Code Interpreterによるレポート生成を扱ったため、今回はCost Explorer APIを使ったコスト通知、Inspector SBOMプラグイン、StackSetsのマルチアカウント展開など、別のサービス・切り口を優先しています。
 
