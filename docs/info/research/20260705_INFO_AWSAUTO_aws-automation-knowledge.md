@@ -1,6 +1,6 @@
 作成日: 2026-07-05 / STATUS: INFO / TOPIC: AWSAUTO
 
-# AWS 業務自動化ナレッジ（週次・2026-07-05）
+# AWS 業務自動化ナレッジ（2026-07-05）— Instance Scheduler・EventBridge Scheduler CDK・コストレポート自動配信
 
 ## 今週のテーマ / 見どころ
 
