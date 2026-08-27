@@ -1,4 +1,4 @@
-# 週次まとめ：Claude / Claude Code による業務自動化ナレッジ（2026-07-06 号）
+# Claude/Claude Code 業務自動化ナレッジ（2026-07-06）— AI SRE headless運用・DevOps向けClaude Skills・GitHub Actionsでの@claude起動
 
 作成日: 2026-07-06 / STATUS: INFO / TOPIC: CLAUDEAUTO
 
