@@ -1,5 +1,7 @@
 作成日: 2026-06-27 / STATUS: INFO / TOPIC: ALAS / 対象: Critical+Important
 
+# AL2023セキュリティアドバイザリ週次まとめ（2026-06-27）— FreeRDPヒープオーバーフローとrrdtool/perl-IO-Compress脆弱性93件
+
 **概要:**
 今週、AL2023 には合計93件の新規セキュリティアドバイザリが公開されました。内訳は以下の通りです。
 - Critical (重大): 0件
