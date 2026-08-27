@@ -1,6 +1,6 @@
 作成日: 2026-06-29 / STATUS: INFO / TOPIC: CLAUDEAUTO
 
-# 週次まとめ：Claude / Claude Code による業務自動化ナレッジ（2026-06-29 号）
+# Claude/Claude Code 業務自動化ナレッジ（2026-06-29）— Terraform IaC化・CVE MCPサーバーによる脆弱性トリアージ・SREインシデント対応エージェント
 
 ## 今週のテーマ・見どころ
 
