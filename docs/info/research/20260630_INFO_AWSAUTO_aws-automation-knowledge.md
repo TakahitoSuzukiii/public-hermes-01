@@ -1,6 +1,6 @@
 作成日: 2026-06-30 / STATUS: INFO / TOPIC: AWSAUTO
 
-# AWS 業務自動化ナレッジ（週次・2026-06-30 号）
+# AWS 業務自動化ナレッジ（2026-06-30）— AWS DevOps Agent GA・CloudWatch AI駆動調査・Bedrock AgentCore Evaluations
 
 ## 今週のテーマと見どころ
 
