@@ -1,4 +1,4 @@
-# AL2023 セキュリティアドバイザリ日次まとめ（2026-06-08）
+# AL2023セキュリティアドバイザリ週次まとめ（2026-06-08）— PostgreSQLのCREATE TYPE認可不備とdocker/containerdのGo脆弱性群
 
 作成日: 2026-06-08 / STATUS: INFO / TOPIC: ALAS / 対象: Critical+Important
 
