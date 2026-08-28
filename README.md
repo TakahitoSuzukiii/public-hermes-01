@@ -15,6 +15,7 @@ Hermes Agent 自体が備える機能を土台に、以下のような運用を�
 | ⏰ **cron スケジューリング** | 定期実行タスク（本リポジトリのタスクボード・ポーラー等）を自然言語で組み、結果を Discord に配信。 |
 | 🔌 **MCP（Model Context Protocol）連携** | GitHub 操作・Office ファイル操作・ブラウザ自動操作・図解生成など、外部 MCP サーバをツールとして接続。 |
 | 🗂 **タスクボード（自前実装）** | Discord から起票した作業依頼を「承認待ち→承認済み→実行中→完了待ち」のステータスで管理する軽量 Web アプリ。ポーラーが定期的に承認済みタスクを1件ずつ取得し処理する設計（原子クレームで多重実行を防止）。 |
+| 🎙 **音声対話（スマートフォン連携）** | Discord ボイスチャンネル経由、および Home Assistant（オンデバイスウェイクワード起動）経由の2系統で、スマートフォン + Bluetoothイヤホンからのハンズフリー音声対話に対応（STT: faster-whisper ローカル、TTS: Edge TTS）。 |
 | 🛡 **HITL（Human-in-the-Loop）運用** | 書き込み系操作（ファイル変更・外部送信・コミット等）は必ず事前確認。承認ゲートを飛ばして自律的にタスクを作らない運用ルールを明文化。 |
 
 ---
@@ -94,6 +95,8 @@ flowchart TD
 | 003 | [taskboard-poller-and-atomic-claim](docs/hermes/003_DONE_SETUP_taskboard-poller-and-atomic-claim.md) | タスクボード・ポーラーと原子クレームによる多重実行防止 |
 | 004 | [pixelwatch-voice-command-route](docs/hermes/004_INFO_GUIDE_pixelwatch-voice-command-route.md) | スマートウォッチからの音声コマンド経路の調査ガイド |
 | 005 | [ccproxy-api-pro-max-billing-workaround](docs/hermes/005_DONE_SETUP_ccproxy-api-pro-max-billing-workaround.md) | API 課金プランの制約に対するプロキシ経由の回避策 |
+| 006 | [info-hermes-category-sync-fix](docs/hermes/006_DONE_SETUP_info-hermes-category-sync-fix.md) | ドキュメント一覧画面のカテゴリ表示バグ修正 |
+| 007 | [microsoft365-outlook-integration-research](docs/hermes/007_INFO_GUIDE_microsoft365-outlook-integration-research.md) | Microsoft 365 / Outlook 連携（読み取り専用）の調査・検討記録（着手は保留） |
 
 ---
 
