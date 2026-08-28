@@ -1,4 +1,4 @@
-# NEXUSホーム(task-board) → Optimus Task Board 移行記録
+# NEXUSホーム(task-board) → Prime Task Board 移行記録
 
 > ステータス: DONE / カテゴリ: SETUP / 実施日 2026-08-09
 > ⚠️ マスキング規約準拠。秘密（トークン/鍵）は一切記載しない。ホスト名/ユーザー名/IP/Discord ID 等は placeholder。
@@ -11,7 +11,7 @@ OpenClaw時代のEC2サーバー上で稼働していたNode.js製Webダッシ�
 - 移行元: `<EC2ホスト>` 上の `~/.openclaw/workspace/tasks/task-board/`（Amazon Linux 2023）
 - 移行先: WSL（Ubuntu）上 `~/optimus/task-board/`
 - アプリ構成: 4層アーキテクチャ（domain/application/infra/repository/interface）、Node標準ライブラリのみ（npm依存ゼロ、`node:sqlite`使用）
-- 名称変更: NEXUS → **Optimus**（画面表示・コード内コメント全て）
+- 名称変更: NEXUS → **Prime**（画面表示・コード内コメント全て）
 
 ## 1. 事前バックアップ
 
@@ -41,7 +41,7 @@ cp -r <migration-src>/.openclaw/workspace/tasks/task-board ~/optimus/task-board
 | `src/infra/infoDocs.mjs` | 参照先を`~/optimus/docs`単一ルートに簡素化（旧`/opt/docs/openclaw-news`との2ルート統合ロジックを削除） |
 | `poller-healthcheck.mjs` | `openclaw cron list --json`→`hermes cron list --all`＋対応パーサに変更 |
 | `public/home.html` | cron名→日本語ラベル対応表を更新（`openclaw-autoupdate-timer`→`hermes-autoupdate-timer`等） |
-| 全ファイル | 「NEXUS」→「Optimus」置換（画面表示・コメント。`deploy/`のCaddy設定は対象外＝後述の理由で不要になるため） |
+| 全ファイル | 「NEXUS」→「Prime」置換（画面表示・コメント。`deploy/`のCaddy設定は対象外＝後述の理由で不要になるため） |
 
 ## 3. 動作検証
 
@@ -61,7 +61,7 @@ cd ~/optimus/task-board && node server.mjs   # 127.0.0.1:18790 で待受
 ```ini
 # ~/.config/systemd/user/optimus-taskboard.service
 [Unit]
-Description=Optimus Task Board - Home Dashboard Web App
+Description=Prime Task Board - Home Dashboard Web App
 After=network-online.target
 Wants=network-online.target
 StartLimitIntervalSec=0

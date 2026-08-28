@@ -42,7 +42,7 @@ claude auth status  # subscriptionType: pro/max を確認
 
 ```ini
 [Unit]
-Description=Optimus CCProxy API - Claude Pro/Max subscription auth reverse proxy (Hermes billing bug workaround)
+Description=Prime CCProxy API - Claude Pro/Max subscription auth reverse proxy (Hermes billing bug workaround)
 After=network-online.target
 Wants=network-online.target
 StartLimitIntervalSec=0

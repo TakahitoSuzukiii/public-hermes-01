@@ -1,6 +1,6 @@
-# Optimus — Hermes Agent 上の AI アシスタント（個人開発ポートフォリオ）
+# Prime — Hermes Agent 上の AI アシスタント（個人開発ポートフォリオ、旧称 Optimus）
 
-**Optimus** は、[Hermes Agent](https://hermes-agent.nousresearch.com/)（Nous Research 製のオープンソース自己改善型 AI エージェント）を土台に個人開発した AI アシスタントです。Discord チャットから指示すると、タスク管理・調査・ドキュメント生成・サーバ運用などを実行します。本リポジトリは、その公開ドキュメント（構築手順・調査ノート）をまとめたものです。
+**Prime**（旧称 Optimus）は、[Hermes Agent](https://hermes-agent.nousresearch.com/)（Nous Research 製のオープンソース自己改善型 AI エージェント）を土台に個人開発した AI アシスタントです。Discord チャットから指示すると、タスク管理・調査・ドキュメント生成・サーバ運用などを実行します。本リポジトリは、その公開ドキュメント（構築手順・調査ノート）をまとめたものです。
 
 ---
 
@@ -29,7 +29,7 @@ flowchart TD
 
     subgraph host["🖥️ ローカル：ホスト環境"]
         gateway["Hermes Gateway<br/>(Discord連携)"]
-        agent["Hermes Agent<br/>(Optimus)"]
+        agent["Hermes Agent<br/>(Prime)"]
         cron["Cron Scheduler<br/>(定期タスク)"]
         board["Task Board<br/>127.0.0.1:18790"]
     end
@@ -89,7 +89,7 @@ flowchart TD
 
 | # | ドキュメント | 概要 |
 |---|---|---|
-| 001 | [nexus-to-optimus-taskboard-migration](docs/hermes/001_DONE_SETUP_nexus-to-optimus-taskboard-migration.md) | 旧エージェント（NEXUS/OpenClaw）からタスクボードを Hermes Agent（Optimus）へ移行 |
+| 001 | [nexus-to-optimus-taskboard-migration](docs/hermes/001_DONE_SETUP_nexus-to-optimus-taskboard-migration.md) | 旧エージェント（NEXUS/OpenClaw）からタスクボードを Hermes Agent（Prime）へ移行 |
 | 002 | [sysfile-versioning-and-locking](docs/hermes/002_DONE_SETUP_sysfile-versioning-and-locking.md) | SOUL.md/AGENTS.md 等システムプロンプト関連ファイルの独自バージョン管理・排他制御 |
 | 003 | [taskboard-poller-and-atomic-claim](docs/hermes/003_DONE_SETUP_taskboard-poller-and-atomic-claim.md) | タスクボード・ポーラーと原子クレームによる多重実行防止 |
 | 004 | [pixelwatch-voice-command-route](docs/hermes/004_INFO_GUIDE_pixelwatch-voice-command-route.md) | スマートウォッチからの音声コマンド経路の調査ガイド |
