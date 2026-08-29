@@ -98,6 +98,7 @@ flowchart TD
 | 006 | [info-hermes-category-sync-fix](docs/hermes/006_DONE_SETUP_info-hermes-category-sync-fix.md) | ドキュメント一覧画面のカテゴリ表示バグ修正 |
 | 007 | [microsoft365-outlook-integration-research](docs/hermes/007_INFO_GUIDE_microsoft365-outlook-integration-research.md) | Microsoft 365 / Outlook 連携（読み取り専用）の調査・検討記録（着手は保留） |
 | 008 | [aws-bedrock-guardrails-pii-masking-research](docs/hermes/008_INFO_GUIDE_aws-bedrock-guardrails-pii-masking-research.md) | AWS Bedrock Guardrails APIによる機密情報マスキングの技術調査（RAG構築における課題整理） |
+| 009 | [ai-agent-guardrail-design-lessons](docs/hermes/009_INFO_GUIDE_ai-agent-guardrail-design-lessons.md) | AIエージェント運用時のネットワーク障害から学んだ、権限設計・ガードレール設計の教訓 |
 
 ---
 
