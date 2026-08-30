@@ -68,6 +68,12 @@ flowchart TD
 
 > 🌐 の点線＝インターネットを経由する通信（外部との境界）。実線＝ホスト内部のローカル通信（127.0.0.1 / プロセス間）。青枠＝ローカル（自宅サーバ内）、赤枠＝外部（インターネット越し）。
 
+### diagram-design 版（洗練されたレイアウトでの表現例）
+
+上記と同じ構成を、[diagram-design](https://github.com/cathrynlavery/diagram-design) スキルで再描画したもの。
+
+![Prime Architecture (diagram-design版)](docs/assets/prime-architecture-diagram-design.png)
+
 ---
 
 ## 📁 リポジトリ構成
