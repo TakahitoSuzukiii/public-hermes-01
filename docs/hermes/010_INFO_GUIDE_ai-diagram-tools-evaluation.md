@@ -44,6 +44,22 @@ Hermes Agent自体のアーキテクチャ図(下記の構成)を共通の題材
 | 記法の書きやすさ | 非常に簡単 | シンプル | HTML+SVGを直接扱うため学習コストは高いが、詳細なルールにより一貫した品質が出やすい |
 | カスタマイズ性 | 低い | 中程度 | 高い(ブランドカラー等を自動で取り込める) |
 
+### 実際の出力(同一題材で作図)
+
+**① Mermaid**
+
+![Mermaidで作図したHermes Agentアーキテクチャ図](assets/010-diagram-tools/1_mermaid.png)
+
+**② D2**
+
+![D2で作図したHermes Agentアーキテクチャ図](assets/010-diagram-tools/2_d2.png)
+
+**③ diagram-design**
+
+![diagram-designスキルで作図したHermes Agentアーキテクチャ図](assets/010-diagram-tools/3_diagram-design.png)
+
+見比べると、③のdiagram-designが最もタイポグラフィ・凡例・余白にこだわりがあり、洗練された見た目になっていることが分かる。一方でGitHub上にそのまま埋め込める手軽さでは①のMermaidに軍配が上がる。
+
 ## 3. 結論・使い分けの方針
 
 - **GitHubのREADME等、公開ドキュメントに直接埋め込みたい場合 → Mermaid**(今回の検証でも、この用途における優位性は変わらないと確認できた)
