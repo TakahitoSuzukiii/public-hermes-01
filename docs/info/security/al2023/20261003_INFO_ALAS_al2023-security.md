@@ -42,6 +42,60 @@
 
 ---
 
+## 🎯 CVSS・OWASPスコア（2026-10-04 追記）
+
+> 📌 **読み方の注意:** 上の「Critical / Important」は **Amazon Linux 独自の重大度ラベル** で、CVSS（Common Vulnerability Scoring System、共通脆弱性評価システム＝脆弱性の深刻度を0.0〜10.0で表す国際基準）とは **別物** です。ここでは各CVEに「CVSS（NVD公式値）」と「OWASP（推定）」を並べます。CVSSは **v3.1** で統一し、NVD（米国国立標準技術研究所の脆弱性DB）から取得しました。「出所」が *CNA* のものは、**脆弱性の発行元（CNA＝CVE採番機関）が付けた値** で、NVD自身の採点ではありません。
+
+### ① CVSS v3.1（公式値）
+
+| CVE | 概要 | CVSS v3.1 | 深刻度 | 出所 | ベクタ（攻撃条件） |
+|---|---|---|---|---|---|
+| CVE-2026-89049 | SSM Agent のSSRF（サーバ側リクエスト偽造）で、IAMロールの一時認証情報を窃取され得る | **9.9** | CRITICAL | CNA（Amazon） | `AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H` |
+| CVE-2026-80521 | Linuxカーネル af_unix のSCCリンク解除漏れ | **7.8** | HIGH | CNA（Red Hat） | `AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H` |
+| CVE-2026-71556 | go-git のシンボリックリンク境界チェック不備 | **7.1** | HIGH | CNA（GitHub） | `AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:L` |
+| CVE-2026-71557 | go-git の参照名未サニタイズ（ディレクトリトラバーサル） | **6.3** | MEDIUM | CNA（GitHub） | `AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:H/A:L` |
+| CVE-2026-42505 | ECHの事前共有鍵識別子の漏えい | **5.3** | MEDIUM | CNA | `AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N` |
+
+- CVE-2026-89049 には **CVSS v4.0 の 8.5（HIGH）** も併記されています。**v3.1 と v4.0 は採点方式が違い、数値は比べられません**（本表はv3.1で統一）。
+- `AV:N`＝ネットワーク経由で攻撃可、`AV:L`＝端末上での操作が必要、`PR:L`＝一般ユーザ権限が必要、`S:C`＝影響が他の領域へ波及（Scope Changed）。
+- 実際の攻撃に使われているか（悪用の確認）は、今回の取得範囲では確認できていません。
+
+### ② OWASP Risk Rating（推定）
+
+OWASP Risk Rating Methodology（OWASPのリスク評価手法）は **「起きやすさ（尤度）× 被害の大きさ（影響度）」** を0〜9で評価し、LOW(<3)・MEDIUM(3〜<6)・HIGH(6〜9) に分けて総合判定します。**これは公式値が存在せず、公開情報から私が見積もった「推定値」** です。業務への影響（ビジネスインパクト）は環境によって変わるため採点せず、技術面のみで評価しています。
+
+| CVE | 尤度（起きやすさ） | 影響度（技術面） | 総合（推定） | 根拠のひとこと |
+|---|---|---|---|---|
+| CVE-2026-89049 | 6.75 HIGH | 7.0 HIGH | **Critical** | 認証済みユーザが遠隔から悪用でき、IAM権限の乗っ取りに直結 |
+| CVE-2026-80521 | 5.12 MEDIUM | 7.0 HIGH | **High** | 端末上のローカル権限が前提のため尤度は中程度。成功時の被害は大 |
+| CVE-2026-71556 | 6.12 HIGH | 3.75 MEDIUM | **High** | 悪意あるリポジトリを開かせるだけで成立。整合性への被害が中心 |
+| CVE-2026-71557 | 5.75 MEDIUM | 3.25 MEDIUM | **Medium** | 参照名の細工にはリポジトリ操作権限が必要 |
+| CVE-2026-42505 | 5.0 MEDIUM | 2.75 LOW | **Low** | 通信の匿名性低下にとどまり、データ破壊は伴わない |
+
+### ③ OWASP Top 10:2025 との対応
+
+OWASP Top 10 は **Webアプリ向け** の分類です。各CVEのCWE（弱点の種類の識別子）を、OWASP公式の対応表と照合しました。
+
+| CVE | CWE（弱点の種類） | OWASP Top 10:2025 |
+|---|---|---|
+| CVE-2026-89049 | CWE-918（SSRF）、CWE-1289 | **A01:2025 Broken Access Control**（アクセス制御の不備）※CWE-918が対応表に掲載 |
+| CVE-2026-71556 | CWE-59（シンボリックリンク追跡） | **A01:2025 Broken Access Control** |
+| CVE-2026-71557 | CWE-22（パストラバーサル） | **A01:2025 Broken Access Control** |
+| CVE-2026-42505 | CWE-201（送信データへの機微情報の混入） | **A01:2025 Broken Access Control**（対応表にCWE-201掲載） |
+| CVE-2026-80521 | CWE未付与（NVD） | **対象外**（カーネルの不具合でありWebアプリ向け分類に該当しないため） |
+
+> ⚠️ 照合で確認できたのは「そのCWEが当該カテゴリの対応表に載っているか」までです。CWE-1289は対応表で確認できていません。
+
+### 今週の優先度（所見）
+
+1. **最優先: CVE-2026-89049（CVSS 9.9 / OWASP推定 Critical）** — SSM Agent は多くのEC2に常駐するため影響範囲が広く、IAM認証情報の窃取は他システムへの侵入の足がかりになります。`amazon-ssm-agent` を **3.3.4851.0 以降**（今回の修正版は 3.3.5226.0）へ更新してください（要管理者権限）。
+2. 次点: go-git系2件（7.1 / 6.3）と、kernel-livepatchの af_unix（7.8、ローカル権限が前提）。
+3. CVE-2026-42505（5.3）は優先度低め。
+
+> 📚 出典: NVD API（https://nvd.nist.gov/）、ALAS-2023-2026-3149（https://alas.aws.amazon.com/AL2023/ALAS2023-2026-3149.html）、ALAS2023LIVEPATCH-2026-389、OWASP Risk Rating Methodology（https://owasp.org/www-community/OWASP_Risk_Rating_Methodology）、OWASP Top 10:2025（https://owasp.org/Top10/2025/）
+
+---
+
 ## その他
 
 - Medium: 4件（libssh, ImageMagick, libxml2, awscli-2）/ Low: 1件（amazon-efs-utils）※いずれも件数のみの記録で詳細は割愛
