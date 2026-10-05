@@ -61,16 +61,42 @@ sed -i -e 's/claude-sonnet-5\.5/claude-sonnet-5-5/g' \
 
 検証:ドット表記が0件、ハイフン表記が11件、YAML構文OK、他の設定に差分なし。
 
-## 3. 罠② ccproxy経由でOpus 5.5・Fable 5.1が通らない(未解決)
+## 3. 罠② ccproxy経由でOpus 5.5・Fable 5.1が通らない(解決済み)
 
-ccproxy経由でOpus・Fableを呼ぶと、400エラーになる。
+ccproxy経由でOpus・Fableを呼ぶと、400エラーになっていた。
 
 > Claude Code 2.1.226 does not support this model; version 2.1.280 (Opus) / 2.1.251 (Fable) or newer is required.
 
-- **推測される原因:** ccproxyが名乗っているClaude Codeのバージョンが古い。
-- **未確認の点:** Claude Code本体を2.1.289へ更新した後も400のままだった。本文を読めていないため、同じ理由かは未確認。
-- **影響:** cronはSonnetとHaikuしか使っていないため、現状は実害なし。
-- **状態:** 未解決。対処するならccproxy側のバージョン設定の調査が必要(障害の前歴があるため、別途計画・承認の上で実施)。
+### 原因
+
+ccproxyは**起動時に`claude` CLIのバージョンを検出し、そのバージョンを名乗るヘッダー情報を作って保持する**。Claude Code本体を2.1.289に更新しても、ccproxyは約5日間再起動していなかったため、古いバージョン情報のまま動いていた(コードの読み取りと、キャッシュファイル`claude_headers_<版>.json`の時刻から特定)。
+
+### 対処:ccproxyの再起動
+
+```bash
+# 事前:キャッシュのバックアップ
+cp -a ~/.cache/ccproxy ~/backups/<日付>-ccproxy-restart/cache
+# 再起動(sudo不要)
+systemctl --user restart optimus-ccproxy.service
+# 起動完了(ポート8990の待受)を待つ。約4〜5分かかった
+ss -ltn | grep :8990
+```
+
+| モデル | 再起動前 | 再起動後 |
+|---|---|---|
+| `claude-sonnet-5-5` | 200 | 200 |
+| `claude-haiku-4-5` | 200 | 200 |
+| `claude-opus-5-5` | 400 | **200** |
+| `claude-fable-5-1` | 400 | **200** |
+
+新しいキャッシュ`claude_headers_2.1.289.json`が作られたことも確認した。
+
+### 運用ルール(重要)
+
+- **Claude Code(CLI)を更新したら、ccproxyを再起動する。** 再起動しないと、新モデルが400になる。
+- **再起動中は約4〜5分、ポート8990が閉じる**(起動時に未使用のCodex CLIの検出を試みて待つため)。その間、ccproxy経由のリクエストは接続拒否になる。cronが走らない時間帯に行う。
+- 起動ログのCodex関連エラー(`Failed to capture Codex CLI request`)は、Claudeの経路とは無関係で、起動のたびに出る。
+- 応答モデルの確認:応答本文はBrotli圧縮されているため、`curl`では文字化けして見える。Hermesのvenv(`brotli`入り)のPythonで展開すると、`claude-opus-5-5`・`claude-fable-5-1`が、それぞれ同名のモデルとして応答していた。
 
 ## 4. cronのモデル固定の仕様
 
@@ -210,7 +236,8 @@ printf '{"version": 12, "path": "/home/<your-user>/.hermes/config.yaml", "hash":
 
 | 項目 | 状態 |
 |---|---|
-| ccproxy経由のOpus 5.5・Fable 5.1 | 400のまま。ccproxyの偽装バージョンの調査が必要 |
+| ccproxy経由のOpus 5.5・Fable 5.1 | **解決済み**(ccproxy再起動で200。Claude Code更新後は再起動が必要) |
+| Claude Code更新後のccproxy再起動の自動化 | 未対応。再起動に4〜5分かかるため、設計が必要 |
 | 「常に最新」への追従 | 案Bのため手動更新。固定解除は課金経路の確認後に再検討 |
 | TTSパッチの恒久化 | 本体更新で消える。更新後の再確認が必要 |
 | 古いautostash(9/10付け) | 役目を終えたため破棄可能(`git stash drop`) |
