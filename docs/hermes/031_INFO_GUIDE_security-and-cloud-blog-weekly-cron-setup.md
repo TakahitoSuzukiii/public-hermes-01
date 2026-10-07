@@ -1,13 +1,13 @@
-# 構築手順:セキュリティ一次情報とクラウドブログの週次調査cron(2本)
+# 構築手順:セキュリティ一次情報とクラウド人気記事の週次調査cron(4本)
 
-- **記録日:** 2026-10-07
+- **記録日:** 2026-10-07(同日に、クラウドブログ週報を3本へ分解して追記)
 - **位置づけ:** Prime(Hermes Agent上のアシスタント)に、毎週の情報収集ジョブを2本追加した記録です。「HackerNewsだけでは一次情報が足りない」という問題意識(セカンドオピニオン)から、情報源を広げました。
 - **公式ドキュメント:** Hermes https://hermes-agent.nousresearch.com/docs / CISA KEV https://www.cisa.gov/known-exploited-vulnerabilities-catalog / JPCERT/CC https://www.jpcert.or.jp/ / Zenn・Qiita APIは本文末尾の出典を参照
 - **マスキング:** ホスト名・IP・ユーザ名・各種IDは`<...>`または`~/`に置換。機密値は記載しない。
 
 ## 0. 先に結論(3行)
 
-1. **2本のcronを追加した。** 水曜03:30 = CISA/JPCERT(脆弱性の一次情報)、土曜03:30 = クラウド4社の公式ブログ+Qiita/Zenn。
+1. **cronを追加した。** 水曜03:30 = CISA/JPCERT(脆弱性の一次情報)。クラウド系は、当初「統合版1本」(土曜)で作ったが、同日に **3本へ分解**(金=公式ブログ、日=Zenn、火=Qiita。いずれも03:30)。統合版は停止して残してある(§10)。
 2. **「取得はスクリプト、文章化はLLM」の分業にした。** 依存ゼロのNodeスクリプトが公式フィード/APIから集め、cron(LLM)は要約・採点・公開だけを担う。
 3. **既存cronと同一分で重ならない。** 同時刻に走るLLMジョブは0件(検証済み)。
 
@@ -123,7 +123,10 @@ CISA/JPCERT週報には、恒久ルール(2026-10-04確定)に従い、各CVEに
 | 水 | 02:00 / **03:30** | claude-cli-autoupdate / **cisa-jpcert-security(新)** |
 | 木 | 01:30 / 02:00 / 02:30 | hackernews / windows-update-security / megatech-outage-report |
 | 金 | 01:30 | github-trending |
-| 土 | 02:00 / **03:30** | hermes-autoupdate-notify / **cloud-techblogs(新)** |
+| 土 | 02:00 | hermes-autoupdate-notify(`cloud-techblogs`は停止) |
+| 金 | 01:30 / **03:30** | github-trending / **cloud-hot-official(新・§10)** |
+| 日 | 01:30 / **03:30** | al2023-security / **cloud-hot-zenn(新・§10)** |
+| 火 | 01:30 / **03:30** | aws-automation-knowledge / **cloud-hot-qiita(新・§10)** |
 
 - 当初は火曜03:30で作成したが、**水曜に変更**(ご指示)。水曜は02:00のあと1時間30分空く。
 - 毎時:00のスクリプト系(LLMなし)とは分がずれている。
@@ -148,6 +151,61 @@ CISA/JPCERT週報には、恒久ルール(2026-10-04確定)に従い、各CVEに
 - 試験結果を踏まえた、プロンプトの調整(記事の長さ・ノイズ除去)
 - 重大なKEV追加があった日だけDiscordへ通知する、軽量な`monitor`方式(LLMを起動しない)
 - JVN・IPA・EPSS(悪用確率)の追加
+
+## 10. 追記:クラウド週報を「サイト別の人気記事」3本へ分解(2026-10-07)
+
+### 10.1 経緯と判断
+統合版(`weekly-cloud-techblogs`)は「新着の紹介」が中心で、**何が本当に人気・ホットか**が分かりにくかった。そこで、サイト別に人気指標を付けて3本へ分解した。cronを増やしすぎない方針のため、6本(1社1本)ではなく**3本**(公式4社・Zenn・Qiita)を選んだ。
+
+### 10.2 追加したもの
+
+| 種別 | 名前 | スケジュール(JST) | 内容 |
+|---|---|---|---|
+| cron | `weekly-cloud-hot-official` | 金 03:30 | 公式ブログ4社の人気記事 |
+| cron | `weekly-cloud-hot-zenn` | 日 03:30 | Zennの人気記事 |
+| cron | `weekly-cloud-hot-qiita` | 火 03:30 | Qiitaの人気記事 |
+| スクリプト | `~/optimus/tasks/cloud-hot/fetch-hot.mjs` | - | `--source official|zenn|qiita` で3系統を切替(依存ゼロ) |
+| 出力先 | `docs/info/news/` | - | `<日付>_INFO_CLOUDHOT_<official|zenn|qiita>-hot-weekly.md` |
+| 停止 | `weekly-cloud-techblogs`(統合版) | - | 削除せず**停止**(`resume`で復元可能) |
+
+### 10.3 「人気」の測り方(すべて無料の公式API、取得を検証済み)
+
+| 対象 | 指標 | 補足 |
+|---|---|---|
+| 公式ブログ4社 | はてなブックマーク数 + Hacker News(HN)のポイント | 合計の大きい順。日本語圏と海外の両方の反応が見える。公式ドメインがHNで話題になったが、RSSに載っていない記事も別枠で拾う |
+| Zenn | 公式の週間トレンド + 直近7日の新着をいいね順 | 2つのリストは重複するため、記事側で重複を除く |
+| Qiita | ホット(直近7日のいいね+ストック順) + 定番(直近30日でストック20以上) | 認証なしは1回100件まで。3ページ(300件)まで走査し、上限に達したら注記 |
+
+- **公式ブログの人気を測る手段:** 公式RSSには、いいね数のような指標がない。そのため、外部の反応(はてブ・HN)で代用した。
+- **Microsoftは指標が付きにくい:** 14件中、指標ありは1件。はてブにもHNにも載りにくいため。その場合、記事は「今週は反響の大きい記事なし」+新着の主なものを書く設定。
+- **HN検索の注意:** 記事URLでの個別検索は、ほぼヒットしなかった(8件中0件)。**ドメイン検索で直近の投稿を取り、URLを正規化して突き合わせる**方式に変えて、ヒットするようになった。
+
+### 10.4 試験実行の結果(3本とも成功)
+
+| ジョブ | 所要 | 記事サイズ | 検証 |
+|---|---|---|---|
+| official | 約2分 | 約9KB | 機微0件、データ外URL 0件、はてブ・HNの数値が元データと全件一致 |
+| zenn | 約2分 | 約7KB | 機微0件、本文の著者ID 0件、データ外URLなし(トピックの一覧ページのみ) |
+| qiita | 約2分 | 約10KB | 機微0件、本文の著者ID 0件、いいね・ストック数が元データと不一致0件 |
+
+- **確認した記述:** Zenn記事の「AWS公式Japanアカウント」は、記事が`aws_japan`のパブリケーション(企業の公式ページ)に載っていることをURLで確認した。事実と合致。
+- **初回のデータ(参考):** Cloudflareの新製品発表がHNで641ポイント。AWSのAurora PostgreSQL関連が、はてブ20。
+
+### 10.5 作成手順(再現用)
+1. 人気指標の取得を、`curl`相当で1つずつ検証してから採用(はてブ一括API、HN Algolia、Zenn API、Qiita API)。
+2. スクリプトを作成し、3系統+異常系(引数なしは使い方を表示して終了、exit 2)を確認。
+3. cronを`hermes cron create`で作成。ポイント:
+   `--workdir ~/optimus --model claude-sonnet-5-5 --provider anthropic-ccproxy --pin --deliver discord`
+   (`enabled_toolsets`はCLIで指定できないため、作成後に`cronjob`ツールのupdateで`terminal`・`file`・`github-mcp`に設定)
+4. 統合版を`pause`(削除しない)。
+5. 3本を手動実行し、記事を元データと突き合わせて検証。
+
+### 10.6 復元方法(統合版に戻す場合)
+- 分解版の3本を停止し、`weekly-cloud-techblogs`を`resume`する(`~/optimus/tasks/cloud-blogs/`のスクリプトは残してある)。
+
+### 10.7 今後の改善候補(未実施)
+- 週ごとの比較(先週との差分、継続して人気の記事)
+- はてブ・HNに載らないMicrosoftの扱い(Microsoft Learnの更新情報など別指標の検討)
 
 ## 出典
 
