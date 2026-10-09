@@ -189,12 +189,14 @@ flowchart TD
 | Are We There Yet? | JVM Language Summit 2009(2009年9月) | Clojureの状態モデルと、プログラムにおける**時間**の捉え方 |
 | **Hammock Driven Development** | Clojure/Conj 2010(2010年10月) | 本記事の対象 |
 | The Value of Values | JaxConf 2012(2012年7月) | 変更可能なオブジェクトより**不変の値**を使う意義 |
-| Reducers | QCon NY 2012(2012年6月) | 技術講演(題名と会議情報のみ確認。内容は未精読) |
-| Transducers | Strange Loop 2014(2014年9月) | 技術講演(題名と会議情報のみ確認。内容は未精読) |
-| Spec-ulation | Clojure/Conj 2016(2016年12月) | 題名と会議情報のみ確認。内容は未精読 |
+| Reducers | QCon NY 2012(2012年6月) | 技術講演(詳細解説あり。034番の目次を参照) |
+| Transducers | Strange Loop 2014(2014年9月) | 技術講演(詳細解説あり。034番の目次を参照) |
+| Spec-ulation | Clojure/Conj 2016(2016年12月) | 詳細解説あり。034番の目次を参照 |
 | Effective Programs | 2017(Clojure誕生10年の振り返り) | 公式ページ:最初の10年と、実用上の優先順位の振り返り |
-| Maybe Not | Clojure/conj 2018(2018年11月) | 型・仕様に関する講演(要点は本調査では未精読) |
-| Design in Practice | Clojure Conj 2023(2023年4月) | 設計の実践(要点は本調査では未精読) |
+| Maybe Not | Clojure/conj 2018(2018年11月) | 詳細解説あり。034番の目次を参照 |
+| Design in Practice | Clojure Conj 2023(2023年4月) | 設計の実践(詳細解説あり。034番の目次を参照) |
+
+> 各講演の詳しい解説は、目次ページ(034番 `034_INFO_GUIDE_rich-hickey-talks-index.md`)から辿れます。
 
 ### 補足:Simple Made Easy の核(書き起こしの該当箇所を確認)
 - **simple** は、語源的に「**sim(1つ)+plex(折り)**」で、**1つの折り・1本の撚り(より)=絡まっていない**こと。反対語は complex(**絡み合って折られたもの**)。
@@ -218,7 +220,7 @@ flowchart TD
 ## 9. 確認範囲と限界
 
 - **確認したこと:** 講演の書き起こし(約34,000文字)の全文、YouTubeのメタ情報(長さ・公開日・再生回数)、Clojure公式の講演一覧と沿革ページ、他講演の会議名・時期(書き起こしの見出し)、Simple Made Easy の用語定義の該当箇所。
-- **確認していないこと:** 動画の映像・音声そのもの(書き起こしで代替)、講演で引用された *Scientific American* の記事、各国語の紹介記事の本文、Maybe Not / Design in Practice などの要点。§7 の表は、Simple Made Easy は書き起こしを確認、Are We There Yet? と The Value of Values と Effective Programs はClojure公式ページの紹介文に基づき、「未精読」と記したものは題名と会議情報のみです。
+- **確認していないこと:** 動画の映像・音声そのもの(書き起こしで代替)、講演で引用された *Scientific American* の記事、各国語の紹介記事の本文。他の講演の要点は、034番の目次から辿れる各解説で扱っています。§7 の表の各講演は、034番の目次から詳細解説に進めます。
 - **書き起こしについて:** コミュニティ作成のため、誤記が含まれる可能性があります(例:本文中に「[tbd]」の欠落箇所あり)。引用は、全文転載を避け、要約と短い言及にとどめました。
 - **人気の数値:** 再生回数などは取得時点の値で、人気の目安です。
 
