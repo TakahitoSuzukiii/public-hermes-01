@@ -36,7 +36,7 @@
 - 導入前チェック: ①Star/Fork(極端に少ない・急増していないか) ②作者(Organization/実績/アカウント作成日) ③最終更新日(放置されていないか) ④ライセンス(明記あり) ⑤`scripts/` と SKILL.md の目視(難読化、curl等の外部送信、環境変数・秘密鍵の参照がないか)。
 - Claude の Plugins ページの Verified / Community ラベルは目安の一つ。Community 扱いは自己確認が前提です。
 
-## 🔧 鈴木さんの環境(Hermes/Claude Code)への示唆
+## 🔧 活用の示唆(Hermes/Claude Code)
 (筆者の見立て)
 - Claude Code を使う場合、2.1.330 でスキルの `model` 指定の挙動が変わった可能性があるため、コスト調整用に使っているスキルがあれば手元で確認すると安全です。
 - Skills over MCP は、MCPサーバ+スキルを一体で管理できる設計。Hermes側で MCP 連携を使う際も、ツールとスキルをセットで更新できる方向性は参考になります。

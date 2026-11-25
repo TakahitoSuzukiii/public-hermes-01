@@ -6,7 +6,7 @@
 - 「悪用が確認されている（KEV）」AI関連の脆弱性は今週**0件**。
 - 最大の話題は **MCP（Model Context Protocol＝AIと外部ツールをつなぐ共通規格）サーバ**の脆弱性が多数出たこと。認証なしで遠隔操作できるもの（ruflo、Jupyter MCP Server）が目立つ。
 - Microsoft 365 Copilot に CVSS 9.9 の権限昇格（CVE-2026-50691）。
-- Hermes Agent（Nous Research）にも脆弱性（CVE-2026-130164、ローカル攻撃・条件付き）。
+- AIエージェント基盤の **Hermes Agent（Nous Research）にも脆弱性**（CVE-2026-130164、ローカル攻撃・条件付き）。
 - NVDで「AIキーワード」に引っかかった誤ヒット57件は除外済み。
 
 ## 🚨 まず見る（悪用確認・緊急）
@@ -42,7 +42,7 @@
 3. **obsidian-sync-mcp（0.5.7未満）** CVE-2026-77283／CVSS 4.0 8.8 HIGH／High／A01/A07。認証トークン未設定のHTTP /mcp が Host/Origin 未検証で、悪意あるサイト経由でObsidianの保管庫に触れる。→ 0.5.7以上＋MCP_AUTH_TOKEN設定。
 4. **llama.cpp（複数）** CVE-2026-137057（CVSS 4.0 8.7、b7118〜b12604未満：GBNF文法の `{5,2}` で認証なしDoS＝サービス停止）／CVE-2026-133710（8.5、GGUFモデルのメタデータ細工による整数オーバーフロー→メモリ破壊。出所不明のモデルを読まない）。OWASP: 尤度HIGH×影響MED⇒High（DoS）／LLM Top10: LLM03 サプライチェーン相当（筆者の見立て）。→ 最新ビルドへ。
 5. **Gradio（6.27.0〜6.32.0未満）** CVE-2026-134825／CVSS 4.0 8.3 HIGH／High／A07。ssr_mode有効時、偽の `Host: localhost` で運用者が保存したHugging Faceトークンを使われる。→ 6.32.0以上、ssr_modeを無効化。
-6. **Hermes Agent（0.21.6〜0.23.1）** CVE-2026-130164／CVSS 3.1 7.8 HIGH／OWASP: 尤度LOW×影響HIGH⇒Medium。非ローカルのターミナルバックエンド上でBot Desktopを動かす場合に限り、バックエンドが書き込める環境ファイルを検証せず読み込み（CWE-426）、権限昇格の恐れ。→ 修正版へ更新。使用中の場合はバージョンと使用バックエンドを要確認。
+6. **Hermes Agent（0.21.6〜0.23.1）** CVE-2026-130164／CVSS 3.1 7.8 HIGH／OWASP: 尤度LOW×影響HIGH⇒Medium。非ローカルのターミナルバックエンド上でBot Desktopを動かす場合に限り、バックエンドが書き込める環境ファイルを検証せず読み込み（CWE-426）、権限昇格の恐れ。→ 修正版へ更新。**鈴木さん環境は該当構成か要確認（バージョンと使用バックエンド）**。
 7. **n8n（ワークフロー自動化）** CVE-2026-130166（CVSS 4.0 7.7、1.123.90/2.14.0未満：署名なし招待で既存メンバーが新規アカウントを乗っ取れる）／CVE-2026-130167（7.5、2.47.6等未満：独自ロールの管理者がオーナーのパスワードリセットを取得）。OWASP: A01/A07、Medium〜High。→ 該当版へ更新。
 8. **ServiceNow Now Assist for CSM の Email Response AI Agent** CVE-2026-18883／CVSS 4.0 7.1 HIGH／間接プロンプトインジェクション（メール等の外部文面に紛れた命令でAIを操る）。ベンダー側で集中修正済み、悪用は未確認と発表。LLM Top10: LLM01 Prompt Injection。
 9. **AutoGPT（0.7.1〜0.8.4）** CVE-2026-133448／CVSS 3.1 7.1：Claude Code CLIへ渡す文章が前処理され、ツール許可リストやフックを回避。LLM Top10: LLM06 Excessive Agency（過剰な権限）。別件で課金回避・サンドボックス放置（CVE-2026-132255/132260、各6.5）も。→ 0.11.0以上へ。
