@@ -1,4 +1,4 @@
-# インシデントウォッチ(平日朝の情報漏えい・不正アクセス監視)構築手順
+# インシデントウォッチ(平日昼の情報漏えい・不正アクセス監視)構築手順
 
 - **記録日:** 2026-11-06(2026-11-18 改訂: 一般報道の追加と事案統合)
 - **種別:** SETUP(構築手順)
@@ -10,7 +10,7 @@
 ## 2. 全体像
 ```mermaid
 flowchart TD
-  A["cron 平日07:30 JST"] --> B["incident-watch.py(AI不使用)"]
+  A["cron 平日11:30 JST"] --> B["incident-watch.py(AI不使用)"]
   B --> C["RSS: ITmedia / Security NEXT / JPCERT / IPA(国内・専門)"]
   B --> C2["RSS: ITmedia NEWS / Impress / NHK / Yahoo IT / Googleニュース(一般報道)"]
   B --> D["RSS: The Hacker News / The Record(海外・大規模のみ)"]
@@ -24,9 +24,9 @@ flowchart TD
 | 項目 | 内容 |
 |---|---|
 | スクリプト | `~/.hermes/scripts/incident-watch.py` |
-| cron | `weekday-incident-watch`(平日 07:30 JST、`no_agent`型) |
+| cron | `weekday-incident-watch`(平日 11:30 JST、`no_agent`型。2026-11-26に朝07:30から変更) |
 | 状態ファイル | `~/.hermes/state/incident-watch.json`(通知済みURL、30日で破棄) |
-| 対象期間 | 直近72時間(月曜朝に金〜日の分を拾うため) |
+| 対象期間 | 直近72時間(月曜に金〜日の分を拾うため) |
 | 時刻の理由 | 07:00のtaskboard-poller・毎時00分の監視を避け、深夜帯の週次ジョブとも重ならない |
 
 ## 4. 判定ルール
@@ -106,6 +106,9 @@ flowchart TD
 
 ### 10.6 切り戻し
 - 改訂前のスクリプトを別途退避済み。戻す場合は退避ファイルを`~/.hermes/scripts/incident-watch.py`へコピーし直す(状態ファイルは互換のため変更不要)。
+
+## 変更履歴(時刻)
+- 2026-11-26: 実行時刻を平日07:30から**平日11:30**へ変更(脆弱性ウォッチと入れ替え。朝は脆弱性、昼はインシデント)。cronの `schedule` のみ変更し、スクリプトは不変。11:30は、毎時00分の監視・07/11/17時00分のtaskboard-pollerと重ならない。
 
 ## 参考(公式・情報源)
 - JPCERT/CC: https://www.jpcert.or.jp/
